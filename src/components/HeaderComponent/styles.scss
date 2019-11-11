@@ -1,0 +1,10 @@
+@import "../../styles/variables.scss";
+@import "../../styles/placeholders.scss";
+
+.payment-header {
+  @extend %navbar-centered;
+
+  h4 {
+    @extend %h4-header;
+  }
+}
