@@ -1,12 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
 import { Input, Dropdown, Button } from "semantic-ui-react";
-import { marginRates } from "../../constants/rates";
 import { validationSchmema } from "./validation";
 import "./styles.scss"
 
 // TODO: Breakout components to setup error handling on validation
-const FormComponent = ({ rateType, percentType, setData }) => {
+const FormComponent = ({ rateType, percentType, setData, percentageRates }) => {
+  FormComponent.propTypes = {
+    rateType: PropTypes.string.isRequired,
+    percentType: PropTypes.string.isRequired,
+    setData: PropTypes.func.isRequired
+  };
+  
   return (
     <Formik initialValues={
       {
@@ -30,9 +36,9 @@ const FormComponent = ({ rateType, percentType, setData }) => {
           <Dropdown 
             placeholder={percentType}
             name={percentType.toLowerCase()}
-            options={marginRates} 
+            options={percentageRates} 
             selection 
-            value={marginRates.value} 
+            value={percentageRates.value} 
             onChange={(e, { name, value }) => setFieldValue(name, value)}/>
           <Button color="purple" type="submit">Submit</Button>
         </Form>

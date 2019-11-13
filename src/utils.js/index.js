@@ -1,4 +1,11 @@
 import toNumber from "./toNumber";
-import marginCalc from "./marginCalc";
+import { payCalc, termCalc, billCalc } from "./PaymentCalculations";
+import { salaryCalculation } from "./SalaryCalculation";
 
-export { toNumber, marginCalc };
+export { 
+  toNumber, 
+  payCalc, 
+  termCalc, 
+  salaryCalculation, 
+  billCalc 
+};

@@ -8,6 +8,14 @@ const marginRates = [
   }
 ];
 
+const markupRates = [
+  {
+    key: "13.5",
+    text: "13.5",
+    value: "13.5",
+    markup: 1.135
+  }
+]
 // TODO: Add Term Rate object
 
-module.exports = { marginRates };
+module.exports = { marginRates, markupRates };
