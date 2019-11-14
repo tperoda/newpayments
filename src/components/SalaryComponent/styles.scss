@@ -1,6 +1,15 @@
+@import "../../styles/variables.scss";
+@import "../../styles/placeholders.scss";
+
+.ui.table {
+  th.salary-header {
+    @extend %table-header;
+  }
+}
+
 .salary-body {
   td {
-    width: 200px;
+    width: 275px;
   }
 
   i {

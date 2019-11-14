@@ -4,13 +4,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $blue !important;
+  background: $blue!important;
+  height: 60px;
+  box-shadow: 0.5px 1px $dark-grey !important;
 }
 
 %h4-header {
   font-size: 18px;
+  font-family: "Open Sans", sans-serif;
 }
 
 %rate-container {
   text-align: center;
+}
+
+%table-header {
+  background: $blue;
+  color: $light-grey;
 }

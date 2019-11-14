@@ -15,7 +15,7 @@ const markupRates = [
     value: "13.5",
     markup: 1.135
   }
-]
+];
 // TODO: Add Term Rate object
 
 module.exports = { marginRates, markupRates };

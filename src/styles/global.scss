@@ -1,5 +1,13 @@
 @import "variables.scss";
 
-header {
-  background: $blue;
+html {
+  font-family: "Open Sans", sans-serif;
+
+  header {
+    background: $blue;
+  }
+
+  body {
+    background: $light-grey;
+  }
 }

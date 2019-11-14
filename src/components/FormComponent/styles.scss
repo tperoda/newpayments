@@ -1,6 +1,13 @@
+@import "../../styles/variables.scss";
+
 .rate-input-form {
   width: 60%;
   display: inline-flex;
   justify-content: space-between;
+
+  button.form-button {
+    background: $blue;
+    color: $light-grey;
+  }
   
 }

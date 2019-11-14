@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Table, Popup, Icon } from "semantic-ui-react";
-import { salaryCalculation } from "../../utils.js";
+import { salaryCalculation } from "../../utils";
 import "./styles.scss";
 
 const SalaryComponent = ({ payRate, termRate }) => {
@@ -14,24 +14,24 @@ const SalaryComponent = ({ payRate, termRate }) => {
     <Table className="salary-container" celled striped textAlign="center">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell colspan={8}>Annual Salaries</Table.HeaderCell>
+          <Table.HeaderCell className="salary-header" colspan={8}>Annual Salaries</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body className="salary-body">
         <Table.Row>
           <Table.Cell className="salary-label">
             Annual Incorporated Salary
-            <Popup 
-            content="Based on 2080 hours" 
-            trigger={<Icon name="question circle outline" />}
+            <Popup
+              content="Based on 2080 hours"
+              trigger={<Icon name="question circle outline" />}
             />
           </Table.Cell>
           <Table.Cell className="salary-value">{salaryCalculation(payRate, "inc")}</Table.Cell>
           <Table.Cell className="salary-label">
             Annual Term Salary
-            <Popup 
-            content="Based on 1900 hours" 
-            trigger={<Icon name="question circle outline" />}
+            <Popup
+              content="Based on 1900 hours"
+              trigger={<Icon name="question circle outline" />}
             />
           </Table.Cell>
           <Table.Cell className="salary-value">{salaryCalculation(termRate, "term")}</Table.Cell>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import LandingComponent from "./containers/LandingPage/LandingPage";
+import FooterComponent from "./components/FooterComponent/FooterComponent";
 import "./styles/global.scss";
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       <main>
         <LandingComponent />
       </main>
+      <footer>
+        <FooterComponent />
+      </footer>
     </div>
   );
 }

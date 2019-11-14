@@ -4,20 +4,22 @@ import { Table } from "semantic-ui-react";
 import "./styles.scss";
 
 // TODO: Style component, possibly add modal or display for term rate calc
-const ValuesComponent = ({ billRate, payRate, termRate, percentage, type }) => {
+const ValuesComponent = ({
+  billRate, payRate, termRate, percentage, type
+}) => {
   ValuesComponent.propTypes = {
     billRate: PropTypes.string.isRequired,
     payRate: PropTypes.string.isRequired,
     termRate: PropTypes.string.isRequired,
     percentage: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired
-  }
+  };
 
   return (
     <Table className="values-container" celled striped textAlign="center">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell colspan={8}>Calculated Values</Table.HeaderCell>
+          <Table.HeaderCell className="values-header" colspan={8}>Calculated Values</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body className="values-body">
@@ -44,7 +46,7 @@ const ValuesComponent = ({ billRate, payRate, termRate, percentage, type }) => {
             {type}
           </Table.Cell>
           <Table.Cell textAlign="center">
-            {percentage ? percentage : "0"}
+            {percentage || "0"}
           </Table.Cell>
         </Table.Row>
       </Table.Body>

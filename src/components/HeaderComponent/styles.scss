@@ -6,5 +6,6 @@
 
   h4 {
     @extend %h4-header;
+    color: $light-grey;
   }
 }
