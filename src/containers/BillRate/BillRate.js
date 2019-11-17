@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FormComponent from "../../components/FormComponent/FormComponent";
-import ValuesComponent from "../../components/ValuesComponent/ValuesComponent";
-import SalaryComponent from "../../components/SalaryComponent/SalaryComponent";
+import { getPayRateFromBill, getTermRateFromPay } from "../../utils";
 import { marginRates } from "../../constants/rates";
-import { payCalc, termCalc } from "../../utils/index";
+import ValuesComponent from "../../components/ValuesComponent";
+import SalaryComponent from "../../components/SalaryComponent";
+import FormComponent from "../../components/FormComponent";
 import "./styles.scss";
 
 const BillRate = () => {
@@ -13,7 +13,8 @@ const BillRate = () => {
   });
 
   const { rate, margin } = data;
-  const payRate = payCalc(rate, margin);
+  const payRate = getPayRateFromBill(rate, margin);
+  const termRate = getTermRateFromPay(payRate);
 
   return (
     <div className="bill-rate-container">
@@ -21,9 +22,20 @@ const BillRate = () => {
         Use these fields if you have a Bill Rate and Margin,
         and want to know Pay Rate and Term Rates
       </p>
-      <FormComponent rateType="Bill Rate" percentType="Margin" setData={setData} percentageRates={marginRates} />
-      <ValuesComponent billRate={rate} percentage={margin} termRate={termCalc(payRate)} payRate={payRate} type="Margin" />
-      <SalaryComponent payRate={payRate} termRate={termCalc(payRate)} />
+      <FormComponent
+        rateType="Bill Rate"
+        percentType="Margin"
+        setData={setData}
+        percentageRates={marginRates}
+      />
+      <ValuesComponent
+        billRate={rate}
+        percentage={margin}
+        termRate={termRate}
+        payRate={payRate}
+        type="Margin"
+      />
+      <SalaryComponent payRate={payRate} termRate={termRate} />
     </div>
   );
 };

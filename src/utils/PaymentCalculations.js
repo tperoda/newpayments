@@ -1,6 +1,7 @@
 const { markupRates } = require("../constants/rates");
 
-const payCalc = (billRate, margin) => {
+// Takes a Bill Rate & Margin, and multiplies to give INC Pay Rate
+const getPayRateFromBill = (billRate, margin) => {
   if (billRate !== "0" && margin !== "0") {
     const billRateNumber = parseFloat(billRate).toFixed(2);
     const marginNumber = parseFloat(margin).toFixed(2);
@@ -12,7 +13,8 @@ const payCalc = (billRate, margin) => {
   return "0";
 };
 
-const termCalc = (payRate) => {
+// Takes an INC Pay Rate, and multiplies by static percentage to give Term Rate
+const getTermRateFromPay = (payRate) => {
   if (payRate !== "0" && payRate !== "") {
     const termRate = (payRate * 0.83).toFixed(2);
     return termRate.toString();
@@ -21,7 +23,8 @@ const termCalc = (payRate) => {
   return "0";
 };
 
-const billCalc = (payRate, markupKey) => {
+// Takes an INC Pay Rate and markup, multiplies to give Bill Rate
+const getBillRateFromPay = (payRate, markupKey) => {
   const markupVal = markupRates.filter((item) => {
     if (item.key === markupKey) {
       return item.markup;
@@ -34,4 +37,16 @@ const billCalc = (payRate, markupKey) => {
   return (payRateNumber * markupVal).toString();
 };
 
-module.exports = { payCalc, termCalc, billCalc };
+// Takes a Term Rate and multiplies to return an INC Pay Rate
+const getPayRateFromTerm = (termRate) => {
+  const payRate = parseFloat(termRate).toFixed(2) * 1.205;
+
+  return payRate.toString();
+};
+
+module.exports = {
+  getPayRateFromBill,
+  getTermRateFromPay,
+  getBillRateFromPay,
+  getPayRateFromTerm
+};

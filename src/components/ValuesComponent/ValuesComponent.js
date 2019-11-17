@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Table } from "semantic-ui-react";
+import { formatCurrency } from "../../utils";
 import "./styles.scss";
 
 // TODO: Style component, possibly add modal or display for term rate calc
@@ -28,19 +29,19 @@ const ValuesComponent = ({
             Bill Rate
           </Table.Cell>
           <Table.Cell textAlign="center">
-            {billRate}
+            {formatCurrency(billRate)}
           </Table.Cell>
           <Table.Cell textAlign="center">
             Pay Rate
           </Table.Cell>
           <Table.Cell textAlign="center">
-            {payRate}
+            {formatCurrency(payRate)}
           </Table.Cell>
           <Table.Cell textAlign="center">
             Term Rate
           </Table.Cell>
           <Table.Cell textAlign="center">
-            {termRate}
+            {formatCurrency(termRate)}
           </Table.Cell>
           <Table.Cell textAlign="center">
             {type}

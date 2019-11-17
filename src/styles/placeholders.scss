@@ -4,7 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $blue!important;
+  background: $med-blue!important;
   height: 60px;
   box-shadow: 0.5px 1px $dark-grey !important;
 }
@@ -19,6 +19,6 @@
 }
 
 %table-header {
-  background: $blue;
+  background: $med-blue;
   color: $light-grey;
 }

@@ -1,12 +1,15 @@
-const salaryCalculation = (rate, type) => {
+import { formatCurrency } from "./FormatCurrency";
+
+export const salaryCalculation = (rate, type) => {
+  let salary;
   switch (type) {
     case "inc":
-      return (rate * 2080).toFixed(2);
+      salary = (rate * 2080).toFixed(2);
+      return formatCurrency(salary);
     case "term":
-      return (rate * 1900).toFixed(2);
+      salary = (rate * 1900).toFixed(2);
+      return formatCurrency(salary);
     default:
-      return "0";
+      return formatCurrency("0");
   }
 };
-
-module.exports = { salaryCalculation };

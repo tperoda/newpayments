@@ -1,11 +1,17 @@
-import toNumber from './toNumber';
-import { payCalc, termCalc, billCalc } from './PaymentCalculations';
-import { salaryCalculation } from './SalaryCalculation';
+import {
+  getPayRateFromBill,
+  getTermRateFromPay,
+  getBillRateFromPay,
+  getPayRateFromTerm
+} from "./PaymentCalculations";
+import { salaryCalculation } from "./SalaryCalculation";
+import { formatCurrency } from "./FormatCurrency";
 
 export {
-  toNumber,
-  payCalc,
-  termCalc,
+  getPayRateFromBill,
+  getTermRateFromPay,
+  getBillRateFromPay,
+  getPayRateFromTerm,
   salaryCalculation,
-  billCalc
+  formatCurrency
 };
