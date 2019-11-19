@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { getTermRateFromPay, getBillRateFromPay } from "../../utils";
-import { markupRates } from "../../constants/rates";
-import ValuesComponent from "../../components/ValuesComponent";
-import SalaryComponent from "../../components/SalaryComponent";
-import FormComponent from "../../components/FormComponent";
+import { markupRates } from "constants/rates";
+import ValuesComponent from "components/ValuesComponent";
+import SalaryComponent from "components/SalaryComponent";
+import FormComponent from "components/FormComponent";
+import { getTermRateFromPay, getBillRateFromPay } from "utils";
+import "./styles.scss";
 
 const PayRate = () => {
   const [data, setData] = useState({
@@ -16,7 +17,7 @@ const PayRate = () => {
   const termRate = getTermRateFromPay(rate);
 
   return (
-    <div className="bill-rate-container">
+    <div className="pay-rate-container">
       <p>
         Use these fields if you have a Pay Rate and Markup,
         and want to know Bill Rate and Term Rates

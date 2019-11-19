@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Table, Popup, Icon } from "semantic-ui-react";
-import { salaryCalculation } from "../../utils";
+import { salaryCalculation } from "utils";
 import "./styles.scss";
 
 const SalaryComponent = ({ payRate, termRate }) => {

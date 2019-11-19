@@ -1,4 +1,4 @@
-const { markupRates } = require("../constants/rates");
+const { markupRates } = require("constants/rates");
 
 // Takes a Bill Rate & Margin, and multiplies to give INC Pay Rate
 const getPayRateFromBill = (billRate, margin) => {

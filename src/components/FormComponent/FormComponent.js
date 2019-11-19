@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
 import { Input, Dropdown, Button } from "semantic-ui-react";
-import { validationSchmema } from "./validation";
+import { validationSchema } from "./validation";
 import "./styles.scss";
 
 // TODO: Breakout components to setup error handling on validation
@@ -13,7 +13,12 @@ const FormComponent = ({
     rateType: PropTypes.string.isRequired,
     percentType: PropTypes.string.isRequired,
     setData: PropTypes.func.isRequired,
-    percentageRates: PropTypes.shape({}).isRequired
+    percentageRates: PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      markup: PropTypes.string
+    }).isRequired
   };
 
   return (
@@ -25,27 +30,30 @@ const FormComponent = ({
         markup: ""
       }
     }
-      onSubmit={(data, { setSubmitting }) => {
-        setSubmitting(true);
-        // Make async post call
+      validationSchema={validationSchema}
+      onSubmit={(data) => {
         setData(data);
-        // async call finishes
-        setSubmitting(false);
       }}
-      validationSchema={validationSchmema}
     >
-      {({ setFieldValue }) => (
+      {({ errors, setFieldValue, handleReset }) => (
         <Form className="rate-input-form">
-          <Field placeholder={rateType} as={Input} name="rate" />
-          <Dropdown
-            placeholder={percentType}
-            name={percentType.toLowerCase()}
-            options={percentageRates}
-            selection
-            value={percentageRates.value}
-            onChange={(e, { name, value }) => setFieldValue(name, value)}
-          />
+          <div className="form-rate-field">
+            <Field placeholder={rateType} as={Input} name="rate" className={errors.rate ? "error-border" : ""} />
+            <p className="error-message">{errors.rate}</p>
+          </div>
+          <div>
+            <Dropdown
+              placeholder={percentType}
+              name={percentType.toLowerCase()}
+              options={percentageRates}
+              selection
+              value={percentageRates.value}
+              onChange={(e, { name, value }) => setFieldValue(name, value)}
+            />
+            {/* <p className="error-message">{errors.margin ? errors.margin : errors.markup}</p> */}
+          </div>
           <Button className="form-button" type="submit">Submit</Button>
+          <Button className="form-reset" onClick={handleReset}>Clear</Button>
         </Form>
       )}
     </Formik>

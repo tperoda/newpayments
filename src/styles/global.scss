@@ -9,5 +9,11 @@ html {
 
   body {
     background: $light-grey;
+
+    .rate-container {
+      p {
+        font-size: 18px;
+      }
+    }
   }
 }

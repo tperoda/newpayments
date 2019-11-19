@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Table } from "semantic-ui-react";
-import { formatCurrency } from "../../utils";
+import { formatCurrency } from "utils";
 import "./styles.scss";
 
 // TODO: Style component, possibly add modal or display for term rate calc

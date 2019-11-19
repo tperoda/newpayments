@@ -1,11 +1,11 @@
 const yup = require("yup");
 
 // TODO: Add logic to allow empty strings in validation for margin and markup
-let min = 0;
+const min = 0;
 const validationSchema = yup.object({
   rate: yup.string()
   .matches(/^([0]([.][0-9]+)?|[1-9]([0-9]+)?([.][0-9][0-9]+)?)$/, {
-    message: 'Inccorect amount format',
+    message: 'Incorrect amount format',
     excludeEmptyString: true
   })
   .test({
@@ -16,11 +16,9 @@ const validationSchema = yup.object({
     test: value => {
       const amountNumber = parseFloat(value).toFixed(2);
   
-      return amountNumber == null || amountNumber.length <= min;
+      return amountNumber.length >= min;
     }
-  }).required(),
-  margin: yup.string().required(),
-  markup: yup.string().required()
+  }).required("Required")
 });
 
 module.exports = { validationSchema };

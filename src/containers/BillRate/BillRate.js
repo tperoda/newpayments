@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { getPayRateFromBill, getTermRateFromPay } from "../../utils";
-import { marginRates } from "../../constants/rates";
-import ValuesComponent from "../../components/ValuesComponent";
-import SalaryComponent from "../../components/SalaryComponent";
-import FormComponent from "../../components/FormComponent";
+import { marginRates } from "constants/rates";
+import { getPayRateFromBill, getTermRateFromPay } from "utils";
+import ValuesComponent from "components/ValuesComponent";
+import SalaryComponent from "components/SalaryComponent";
+import FormComponent from "components/FormComponent";
 import "./styles.scss";
 
 const BillRate = () => {
