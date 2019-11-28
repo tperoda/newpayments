@@ -14,6 +14,12 @@ const markupRates = [
     text: "13.5",
     value: "13.5",
     markup: 1.135
+  },
+  {
+    key: "18",
+    text: "18",
+    value: "18",
+    markup: 1.20
   }
 ];
 // TODO: Add Term Rate object

@@ -25,16 +25,15 @@ const getTermRateFromPay = (payRate) => {
 
 // Takes an INC Pay Rate and markup, multiplies to give Bill Rate
 const getBillRateFromPay = (payRate, markupKey) => {
-  const markupVal = markupRates.filter((item) => {
-    if (item.key === markupKey) {
-      return item.markup;
-    }
+  if (markupKey !== "0") {
+    const markupObject = markupRates.filter((item) => item.key === markupKey);
+    const markupVal = markupObject[0];
+    const payRateNumber = parseFloat(payRate).toFixed(2);
+    const billRate = payRateNumber * markupVal.markup
+    return billRate.toString();
+  }
 
-    return "";
-  });
-
-  const payRateNumber = parseFloat(payRate).toFixed(2);
-  return (payRateNumber * markupVal).toString();
+  return "";
 };
 
 // Takes a Term Rate and multiplies to return an INC Pay Rate
