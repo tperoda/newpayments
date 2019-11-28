@@ -1,9 +1,6 @@
 @import "variables.scss";
 
 %navbar-centered {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   background: $med-blue!important;
   height: 60px;
   box-shadow: 0.5px 1px $dark-grey !important;
